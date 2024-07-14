@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>xELITE | Guru Network - eliteness.network1</title>
+	<meta name="description" content="xELITE : Auto-compounding Re-denominated ELITE">
+	<meta name="keywords" content="Fantom Opera, FTM, Decentralized Finance, xELITE, ELITE, 1337, defi, farming, FTM1337">
+    <link rel="shortcut icon" href="https://ftm.guru/icons/64.png">
+    <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
+
+    <div id="note" class="overlay">
+        <div class="popup">
+            <a class="close" href="#">&times;</a>
+            <div class="content" id="content1">
+                Welcome!
+            </div>
+        </div>
+    </div>
+
+    <div class="topnav">
+        <div class="topnav-left">
+            <a href="https://eliteness.network/elocks">
+                <img src="https://ftm.guru/icons/64.png" alt="Logo" height="32px">
+            </a>
+            <a href="https://eliteness.network">eliteness.network</a>
+        </div>
+        <div class="topnav-right">
+            <p id="p_cw">
+                <span id="cw" onclick="cw()"><span id="cw_og" class="submit equal-gradient">Connect wallet</span></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="subnav" style="display:none">
+        <div class="subnav-link"><a href="#a-trade">Trade</a></div>
+        <div class="subnav-link"><a href="#a-order">Orderbook</a></div>
+        <div class="subnav-link"><a href="#a-addlp">Liquidity</a></div>
+        <div class="subnav-link"><a href="#a-posit">Positions</a></div>
+        <div class="subnav-link"><a href="https://eliteness.network/fertilizer">Farm & Earn</a></div>
+    </div>
+
+    <div id="main-area">
+        <div class="headline">
+            <div class="headline-keyword">xELITE</div>
+            AutoCompounding & ReDenominating ELITE!
+        </div>
+
+        <!-- <div class="page-heading">
+            <img src="https://ftm.guru/icons/lock.svg" alt="Lock Icon">
+            <a href="https://eliteness.network/elocks">eLOCKS</a>
+            ≻ <a>Overview</a>
+        </div> -->
+
+        <div class="topstats">
+            <div class="topstat">
+                <div id="topstat-total">...</div>
+                <div>Total Supply of xELITE</div>
+            </div>
+            <div class="topstat">
+                <div id="topstat-roiapr">% / %</div>
+                <div>Lifetime ROI / Current APR</div>
+            </div>
+            <div class="topstat">
+                <div id="topstat-ratio">...</div>
+                <div>ELITE per 1 xELITE</div>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Mint')">Mint new xELITE</button>
+            <button class="tablinks" onclick="openTab(event, 'Redeem')">Redeem to ELITE</button>
+        </div>
+
+        <!-- Tab content -->
+        <div id="Mint" class="tabcontent">
+            <div class="c2a">
+                <form>
+                    <h2>Deposit ELITE to get xELITE</h2>
+                    <br>
+                    <div class="form-item-container">
+                        <label for="cl-lp">Enter amount of ELITE</label>
+                        <div class="hint"><span id="mint-bal" onclick="$('mint-amt').value=this.innerHTML">0</span> ELITE in wallet</div>
+<input required class="in-box" id="mint-amt" type="number" step="0.000001" min="0.000001" placeholder="1.337" onchange="">
+                    </div>
+                    <button type="submit" class="c2a-1 submit equal-gradient" onclick="mint()">Deposit</button>
+                </form>
+                <br><br>
+            </div>
+        </div>
+
+        <!-- Tab content -->
+        <div id="Redeem" class="tabcontent">
+            <div class="c2a">
+                <form>
+                    <h2>Convert XELITE back to ELITE</h2>
+                    <br>
+                    <div class="form-item-container">
+                        <label for="cl-lp">Enter amount of xELITE</label>
+                        <div class="hint"><span id="redeem-bal" onclick="$('redeem-amt').value=this.innerHTML">0</span> xELITE in wallet</div>
+                        <input required class="redeem-amt" id="redeem-amt" type="number" step="1" min="1" placeholder="1337" onchange="">
+                    </div>
+                    <button type="submit" class="c2a-1 submit equal-gradient" onclick="redeem()">Withdraw</button>
+                </form>
+                <br><br>
+            </div>
+        </div>
+		<footer>
+        <h2>Powered by Guru Network</h2>
+        <div class="social">
+            <a target="_blank" href="https://discord.gg/QpyfMarNrV"><img src="https://ftm.guru/icons/discord.svg" alt="Discord"></a>
+            <a target="_blank" href="https://twitter.com/FTM1337"><img src="https://ftm.guru/icons/twitter.svg" alt="Twitter"></a>
+            <a target="_blank" href="https://dune.com/eliteness"><img src="https://ftm.guru/icons/dune.svg" alt="Dune"></a>
+            <a target="_blank" href="https://defillama.com/protocol/guru-network-dao"><img src="https://ftm.guru/icons/defillama.svg" alt="Defillama"></a>
+            <a target="_blank" href="https://coinmarketcap.com/currencies/elite-1337"><img src="https://ftm.guru/icons/cmc.svg" alt="CoinMarketCap"></a>
+            <a target="_blank" href="https://ftm.guru/docs"><img src="https://ftm.guru/icons/docs.svg" alt="Docs"></a>
+        </div>
+	</footer>
+    </div>
+
+    <!-- Ignore Below Block : Dev Logs -->
+    <div style="display:none">
+        <span id="cw_m"></span>
+        <div id="connect">
+            Please connect your web3 wallet.
+            <button onclick="cw()" id="btn-connect">Connect</button>
+        </div>
+        <div id="switch">
+            <b id="btn-switch" onclick="cw()">
+                <span id="cw"></span>
+            </b>
+            <div>Balance: <b id="usb-mtv">?</b> USDC</div>
+            <span>Wallet at Fantom Opera. <a href="index.html" style="color:aqua;">Change?</a></span>
+        </div>
+    </div>
+    <!-- Ignore Above Block : Dev Logs -->
+
+    <script src="https://ftm.guru/ethers-5.2.umd.min.js"></script>
+    <script src="index.js"></script>
+    <script>
+    	// GLOBAL
+        RPC_URL = "https://rpc.ankr.com/fantom";
+        CHAINID = 250;
+        CHAIN_NAME = "Fantom Opera";
+        CHAIN_GAS = "FTM";
+        CAHIN_COIN = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
+        CHAIN_LOGO = "https://ftm.guru/icons/ftm.svg";
+        EXPLORE = "https://ftmscan.com/";
+        EXPLORT = EXPLORE + "tx/";
+        EXPLORA = EXPLORE + "address/";
+        TVLGURU = "0x0786c3a78f5133f08c1c70953b8b10376bc6dcad";
+        LOGOS = "https://cdn.jsdelivr.net/gh/unified-defi/equalizer-tokens@latest/fantom/tokens/128x128/";
+
+        // LOCAL
+		ELITE	= "0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882";
+		XELITE	= "0x1BE23c78038B6057172848534AcD62667fA2620d";
+    </script>
+</body>
+</html>
