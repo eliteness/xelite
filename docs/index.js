@@ -326,7 +326,7 @@ async function mint() {
 
 async function redeem() {
 
-	_oamt = $("mint-amt").value;
+	_oamt = $("redeem-amt").value;
 	if(!isFinite(_oamt) || _oamt<1/1e18){notice(`Invalid LP amount!`); return;}
 	_oamt = BigInt(Math.floor(_oamt * 1e18));
 
