@@ -309,7 +309,7 @@ async function mint() {
 		<img style='height:32px;position:relative;top:4px' src="${LOGOS + ELITE.toLowerCase()}.png">
 		<h3>Order Submitted!</h3>
 		<br><h4>Depositing ELITE to mint XELITE</h4>
-		${BASE_NAME} Depositing: <b>${(Number(_oamt)/1e18).toFixed(18)}</b><br>
+		ELITE Deposited: <b>${(Number(_oamt)/1e18).toFixed(18)}</b><br>
 		<br>
 		<h4><a target="_blank" href="${EXPLORE}/tx/${_tr.hash}">View on Explorer</a></h4>
 	`);
