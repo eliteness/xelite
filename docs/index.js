@@ -215,8 +215,8 @@ async function dexstats() {
 
 
 	let roi = ((133_700_000e18/Number(_dsd[1])-1));
-	let te = Date.now() - 1636323561000
-	let apr = (roi/te * 86400*365000).toLocaleString();
+	let te = Date.now() - 1636323561000;
+	let apr = (roi/te * 86400*365000);
 
 	$("topstat-total").innerHTML = (Number(_dsd[0])/1e18).toLocaleString(undefined,{maximumFractionDigits:0});
 	$("topstat-ratio").innerHTML = (Number(_dsd[1])/1e18).toLocaleString(undefined,{maximumFractionDigits:0});
@@ -235,7 +235,7 @@ async function gubs() {
 	]);
 
 	$("mint-bal").innerHTML = (Math.floor(Number(_ubs[0])/1e6)/1e12);
-	$("redeem-bal").innerHTML = (Math.floor(Number(_ubs[1])/1e6)/1e12);
+	$("redeem-bal").innerHTML = (Math.floor(Number(_ubs[1])/1e18));
 
 	return;
 }
@@ -318,7 +318,6 @@ async function mint() {
 	notice(`
 		<img style='height:32px;position:relative;top:4px' src="${LOGOS + ELITE.toLowerCase()}.png">
 		<h3>Minted xELITE to your Wallet</h3>
-		<br><br>
 		<h4><a target="_blank" href="${EXPLORE}/tx/${_tr.hash}">View on Explorer</a></h4>
 	`);
 	gubs();
@@ -362,7 +361,7 @@ async function redeem() {
 	notice(`
 		<img style='height:32px;position:relative;top:4px' src="${LOGOS + ELITE.toLowerCase()}.png">
 		<h3>Order Submitted!</h3>
-		<br><h4>Withdrawing ELITE by burning XELITE</h4>
+		<h4>Withdrawing ELITE by burning XELITE</h4>
 		xELITE Redeemed: <b>${(Number(_oamt)/1e18).toFixed(18)}</b><br>
 		<br>
 		<h4><a target="_blank" href="${EXPLORE}/tx/${_tr.hash}">View on Explorer</a></h4>
@@ -372,7 +371,6 @@ async function redeem() {
 	notice(`
 		<img style='height:32px;position:relative;top:4px' src="${LOGOS + ELITE.toLowerCase()}.png">
 		<h3>ELITE sent to your Wallet!</h3>
-		<br><br>
 		<h4><a target="_blank" href="${EXPLORE}/tx/${_tr.hash}">View on Explorer</a></h4>
 	`);
 	gubs();
